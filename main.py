@@ -1,31 +1,24 @@
 from turtle import Turtle, Screen
 from paddle import Paddle
 
-
 screen = Screen()
 
 screen.setup(width=800, height=600, startx=350, starty=0)
 screen.bgcolor("black")
 screen.tracer(0)
-paddle1 = Paddle()
-paddle2 = Paddle().new_paddle()
-
-
-def up():
-    paddle1.sety(paddle1.ycor() + 40)
-
-
-def down():
-    paddle1.sety(paddle1.ycor() - 40)
+left_paddle = Paddle(350, 0)
+right_paddle = Paddle(-350, 0)
 
 is_game_on = True
 
 while is_game_on:
     screen.tracer(1)
 
-screen.onkey(up, "Up")
-screen.onkey(down, "Down")
-
 screen.listen()
+screen.onkey(left_paddle.up, "Up")
+screen.onkey(left_paddle.down, "Down")
+
+screen.onkey(right_paddle.up, "w")
+screen.onkey(right_paddle.down, "s")
 
 screen.exitonclick()
