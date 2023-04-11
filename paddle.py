@@ -1,12 +1,17 @@
 from turtle import Turtle
 
-paddle = Turtle()
 
-paddle.hideturtle()
-paddle.shape("square")
-paddle.turtlesize(stretch_wid=5, stretch_len=1, outline=1)
-paddle.color("white")
-paddle.penup()
-paddle.speed("fastest")
-paddle.setposition(350, 0)
-paddle.showturtle()
+class Paddle(Turtle):
+    def __init__(self):
+        super().__init__()
+
+        self.speed("fastest")
+        self.shape("square")
+        self.turtlesize(stretch_wid=5, stretch_len=1, outline=1)
+        self.color("white")
+        self.penup()
+        self.setposition(350, 0)
+
+    def new_paddle(self):
+        position = (-350, 0)
+        self.setposition(position)
