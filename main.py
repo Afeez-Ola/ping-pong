@@ -26,9 +26,13 @@ while is_game_on:
     screen.tracer(1)
     ball.move()
 
+    # Detect wall collision
     if ball.ycor() > 280 or ball.ycor() < -280:
-        time.sleep(.04)
-        ball.bounce()
+        # time.sleep(.04)
+        ball.bounce_y()
+    # Detect paddle collision
+    if ball.distance(left_paddle) < 50 and ball.xcor() > 320:
+        ball.bounce_x()
 
 
 
