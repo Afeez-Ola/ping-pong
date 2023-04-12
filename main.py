@@ -38,9 +38,11 @@ while is_game_on:
         ball.bounce_x()
     if ball.xcor() > 350:
         time.sleep(0.6)
+        scoreboard.l_score()
         ball.reset_ball()
     elif ball.xcor() < -350:
         time.sleep(0.6)
+        scoreboard.r_score()
         ball.reset_ball()
 
 screen.exitonclick()
