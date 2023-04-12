@@ -2,6 +2,7 @@ from turtle import Turtle, Screen
 from paddle import Paddle
 from ball import Ball
 import time
+from scoreboard import Scoreboard
 
 screen = Screen()
 
@@ -12,6 +13,8 @@ left_paddle = Paddle(350, 0)
 right_paddle = Paddle(-350, 0)
 
 ball = Ball()
+
+scoreboard = Scoreboard()
 
 is_game_on = True
 
@@ -33,5 +36,11 @@ while is_game_on:
     # Detect paddle collision
     if ball.distance(left_paddle) < 50 and ball.xcor() > 320 or ball.distance(right_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
+    if ball.xcor() > 350:
+        time.sleep(0.6)
+        ball.reset_ball()
+    elif ball.xcor() < -350:
+        time.sleep(0.6)
+        ball.reset_ball()
 
 screen.exitonclick()
