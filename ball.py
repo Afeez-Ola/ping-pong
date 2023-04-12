@@ -28,5 +28,4 @@ class Ball(Turtle):
         self.bounce_x()
 
     def ball_speed(self):
-        # self.dx +=1
         self.dy += 5
