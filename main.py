@@ -36,11 +36,12 @@ while is_game_on:
     # Detect paddle collision
     if ball.distance(left_paddle) < 50 and ball.xcor() > 320 or ball.distance(right_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
-    if ball.xcor() > 350:
+        ball.ball_speed()
+    if ball.xcor() > 340:
         time.sleep(0.6)
         scoreboard.l_score()
         ball.reset_ball()
-    elif ball.xcor() < -350:
+    elif ball.xcor() < -340:
         time.sleep(0.6)
         scoreboard.r_score()
         ball.reset_ball()
